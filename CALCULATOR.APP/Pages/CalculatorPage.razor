@@ -10,20 +10,25 @@
     <!-- for styling -->
     <style>
         table {
-            border: 1px solid black;
+           
             margin-left: auto;
             margin-right: auto;
         }
   
         input[type="button"] {
-            width: 100%;
+            width: 95%;
             padding: 20px 40px;
-            background-color: blue;
+            background-color: #8C8886;
             color: white;
             font-size: 24px;
             font-weight: bold;
             border: none;
-            border-radius: 5px;
+            border-radius: 10px;
+
+        }
+
+        #caracteres{
+            background-color: #FA8539;
         }
   
         input[type="text"] {
@@ -43,8 +48,14 @@
     <div class="cert-lab">
         <table id="calcu">
             <tr>
+<<<<<<< HEAD
                 <td colspan="3"><input type="text" @bind-value="resultToAdd" id="result"></td>
                 <td><input type="button" value="c" onclick=@(() => Clr()) /> </td>
+=======
+                <td colspan="3"><input type="text" id="result"></td>
+                <!-- clr() function will call clr to clear all value -->
+                <td><input type="button" id="caracteres" value="c" onclick="clr()" /> </td>
+>>>>>>> klk no bulto
             </tr>
             <tr>
                 <td>
@@ -57,7 +68,7 @@
                     <input type="button" value="3" onclick="@(() =>ResultToAdd("3"))">
                 </td>
                 <td>
-                    <input type="button" value="/" onclick="@(() =>ResultToAdd("/"))">
+                    <input type="button" id="caracteres" value="/" onclick="@(() =>ResultToAdd("/"))">
                 </td>
             </tr>
             <tr>
@@ -71,7 +82,7 @@
                     <input type="button" value="6" onclick="@(() =>ResultToAdd("6"))">
                 </td>
                 <td>
-                    <input type="button" value="*" onclick="@(() =>ResultToAdd("*"))">
+                    <input type="button" id="caracteres" value="*" onclick="@(() =>ResultToAdd("*"))">
                 </td>
             </tr>
             <tr>
@@ -85,7 +96,7 @@
                     <input type="button" value="9" onclick="@(() =>ResultToAdd("9"))">
                 </td>
                 <td>
-                    <input type="button" value="-" onclick="@(() =>ResultToAdd("-"))">
+                    <input type="button" id="caracteres" value="-" onclick="@(() =>ResultToAdd("-"))">
                 </td>
             </tr>
             <tr>
@@ -96,10 +107,14 @@
                     <input type="button" value="." @onclick="@(() =>ResultToAdd("."))">
                 </td>
                 <!-- solve function call function solve to evaluate value -->
+<<<<<<< HEAD
                 <td><input type="button" value="=" @onclick="@(() => Solve())"> </td>
+=======
+                <td><input type="button" id="caracteres" value="=" onclick="solve()"> </td>
+>>>>>>> klk no bulto
 
                 <td>
-                    <input type="button" value="+" @onclick="@(() =>ResultToAdd("+"))">
+                    <input type="button" id="caracteres" value="+" @onclick="@(() =>ResultToAdd("+"))">
                 </td>
             </tr>
         </table>
