@@ -43,7 +43,7 @@
     <div class="cert-lab">
         <table id="calcu">
             <tr>
-                <td colspan="3"><input type="text" id="result"></td>
+                <td colspan="3"><input type="text" @bind-value="resultToAdd" id="result"></td>
                 <!-- clr() function will call clr to clear all value -->
                 <td><input type="button" value="c" onclick="clr()" /> </td>
             </tr>
@@ -99,7 +99,7 @@
                     <input type="button" value="." @onclick="@(() =>ResultToAdd("."))">
                 </td>
                 <!-- solve function call function solve to evaluate value -->
-                <td><input type="button" value="=" onclick="solve()"> </td>
+                <td><input type="button" value="=" @onclick="@(() => Solve())"> </td>
 
                 <td>
                     <input type="button" value="+" @onclick="@(() =>ResultToAdd("+"))">
@@ -119,12 +119,13 @@
 
     private void ResultToAdd(string result)
     {
-        resultToAdd = result;
+        resultToAdd += result;
     }
     
     private void Solve()
     {
         CalculatorService.GetResultAsync(resultToAdd);
+        resultToAdd = "";
     }
 
 }
