@@ -9,17 +9,22 @@ namespace CALCULATOR.API.Controllers
     [ApiController]
     public class CalculateController : ControllerBase
     {
+        public CalculateController()
+        {
+                
+        }
+
         [HttpPost]
         public IActionResult GetResultOfCalculate(string value)
         {
             try
             {
                 DataTable dt = new DataTable();
-                var response = dt.Compute(value, "");
+                var response = dt.Compute(value, "").ToString();
 
                 var result = new WebResponse<double>()
                 {
-                    Body = (double)response,
+                    Body = double.Parse(response),
                     IsSuccess = true,
                     Message = "Success",
                     StatusCode = "200",
@@ -29,7 +34,14 @@ namespace CALCULATOR.API.Controllers
             }
             catch(Exception ex) 
             {
-                return BadRequest(ex.Message);
+                var result = new WebResponse<double>()
+                {
+                    Body = 0.00,
+                    IsSuccess = false,
+                    Message = ex.Message,
+                    StatusCode = "",
+                };
+                return BadRequest(result);
             }
         }
     }
