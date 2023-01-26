@@ -48,14 +48,9 @@
     <div class="cert-lab">
         <table id="calcu">
             <tr>
-<<<<<<< HEAD
-                <td colspan="3"><input type="text" @bind-value="resultToAdd" id="result"></td>
-                <td><input type="button" value="c" onclick=@(() => Clr()) /> </td>
-=======
                 <td colspan="3"><input type="text" id="result"></td>
                 <!-- clr() function will call clr to clear all value -->
-                <td><input type="button" id="caracteres" value="c" onclick="clr()" /> </td>
->>>>>>> klk no bulto
+                <td><input type="button" value="c" onclick="clr()" /> </td>
             </tr>
             <tr>
                 <td>
@@ -107,11 +102,7 @@
                     <input type="button" value="." @onclick="@(() =>ResultToAdd("."))">
                 </td>
                 <!-- solve function call function solve to evaluate value -->
-<<<<<<< HEAD
-                <td><input type="button" value="=" @onclick="@(() => Solve())"> </td>
-=======
-                <td><input type="button" id="caracteres" value="=" onclick="solve()"> </td>
->>>>>>> klk no bulto
+                <td><input type="button" value="=" onclick="solve()"> </td>
 
                 <td>
                     <input type="button" id="caracteres" value="+" @onclick="@(() =>ResultToAdd("+"))">
