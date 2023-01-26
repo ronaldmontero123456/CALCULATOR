@@ -2,6 +2,6 @@
 {
     public interface IHttpService
     {
-        Task<T> Post<T>(string uri, object value);
+        Task<T> Get<T>(string uri);
     }
 }

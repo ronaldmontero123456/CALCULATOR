@@ -4,6 +4,7 @@ using System.Net.Http.Headers;
 using System.Net;
 using System.Text;
 using System.Text.Json;
+using Newtonsoft.Json;
 
 namespace CALCULATOR.APP.Services
 {
@@ -14,11 +15,10 @@ namespace CALCULATOR.APP.Services
         {
             _httpClient = httpClient;
         }
-        public async Task<T> Post<T>(string uri, object value)
+
+        public async Task<T> Get<T>(string uri)
         {
-            var request = new HttpRequestMessage(HttpMethod.Post, uri);
-            string post = JsonSerializer.Serialize(value);
-            request.Content = new StringContent(JsonSerializer.Serialize(value), Encoding.UTF8, "application/json");
+            var request = new HttpRequestMessage(HttpMethod.Get, uri);
             return await sendRequest<T>(request);
         }
 
@@ -33,7 +33,7 @@ namespace CALCULATOR.APP.Services
                 throw new Exception(error["message"]);
             }
             var resultOjbect = await response.Content.ReadAsStringAsync();
-            return JsonSerializer.Deserialize<T>(resultOjbect);
+            return JsonConvert.DeserializeObject<T>(resultOjbect);
         }
     }
 }

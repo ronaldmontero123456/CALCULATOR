@@ -13,7 +13,7 @@ namespace CALCULATOR.APP.Services
 
         public async Task<WebResponse<double>> GetResultAsync(string result)
         {
-            return await _httpService.Post<WebResponse<double>>("api/Calculate", result);
+            return await _httpService.Get<WebResponse<double>>($"api/Calculate?value={result}");
         }
     }
 }

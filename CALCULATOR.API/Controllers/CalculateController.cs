@@ -14,7 +14,7 @@ namespace CALCULATOR.API.Controllers
                 
         }
 
-        [HttpPost]
+        [HttpGet]
         public IActionResult GetResultOfCalculate(string value)
         {
             try
