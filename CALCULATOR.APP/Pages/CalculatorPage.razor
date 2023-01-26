@@ -105,19 +105,16 @@
             </tr>
             <tr>
                 <td>
-                    <input type="button" value="0" onclick="dis('0')"
-                           onkeydown="myFunction(event)">
+                    <input type="button" value="0" @onclick="@(() =>ResultToAdd("0"))">
                 </td>
                 <td>
-                    <input type="button" value="." onclick="dis('.')"
-                           onkeydown="myFunction(event)">
+                    <input type="button" value="." @onclick="@(() =>ResultToAdd("."))">
                 </td>
                 <!-- solve function call function solve to evaluate value -->
                 <td><input type="button" value="=" onclick="solve()"> </td>
 
                 <td>
-                    <input type="button" value="+" onclick="dis('+')"
-                           onkeydown="myFunction(event)">
+                    <input type="button" value="+" @onclick="@(() =>ResultToAdd("+"))">
                 </td>
             </tr>
         </table>
@@ -128,5 +125,10 @@
 </html>
 
 @code {
+
+    private void ResultToAdd(string result)
+    {
+        
+    }
 
 }
