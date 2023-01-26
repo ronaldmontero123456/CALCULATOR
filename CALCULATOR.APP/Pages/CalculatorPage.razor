@@ -114,9 +114,17 @@
 
 @code {
 
+
+    string resultToAdd = "";
+
     private void ResultToAdd(string result)
     {
-        
+        resultToAdd = result;
+    }
+    
+    private void Solve()
+    {
+        CalculatorService.GetResultAsync(resultToAdd);
     }
 
 }
