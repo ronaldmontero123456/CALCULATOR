@@ -44,12 +44,9 @@
         <table id="calcu">
             <tr>
                 <td colspan="3"><input type="text" @bind-value="resultToAdd" id="result"></td>
-                <!-- clr() function will call clr to clear all value -->
-                <td><input type="button" value="c" onclick="clr()" /> </td>
+                <td><input type="button" value="c" onclick=@(() => Clr()) /> </td>
             </tr>
             <tr>
-                <!-- create button and assign value to each button -->
-                <!-- dis("1") will call function dis to display value -->
                 <td>
                     <input type="button" value="1" onclick="@(() =>ResultToAdd("1"))">
                 </td>
@@ -121,10 +118,15 @@
     {
         resultToAdd += result;
     }
-    
-    private void Solve()
+
+    private async void Solve()
     {
-        CalculatorService.GetResultAsync(resultToAdd);
+        var result = await CalculatorService.GetResultAsync(resultToAdd);
+        resultToAdd = result.Body.ToString();
+    }
+
+    private void Clr()
+    {
         resultToAdd = "";
     }
 
